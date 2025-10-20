@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameVerse | Log In</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./logIn.css" />
+    <link rel="website icon" type="png" href="./images/logo.png" />
+  </head>
+  <body>
+    <video autoplay muted loop id="bg-video">
+      <source src="./videos/backgroundVideo.mp4" type="video/mp4" />
+    </video>
+    <div class="login-box">
+      <h2>Join GameVerse</h2>
+      <form class="was-validated">
+        <input
+          type="text"
+          id="userName"
+          class="form-control"
+          placeholder="UserName"
+          required
+        />
+        <div class="invalid-feedback">Don't leave empty!</div>
+        <div class="valid-feedback">Everything is true!</div>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          placeholder="Password"
+          required
+        />
+        <button type="submit" id="logInBtn">Log In</button>
+      </form>
+    </div>
+    <script>
+      let userName = document.querySelector("#userName");
+      let password = document.querySelector("#password");
+      let logInBtn = document.querySelector("#logInBtn");
+
+      let users = [];
+      let usersString = localStorage.getItem("users");
+      if (usersString) {
+        users = JSON.parse(usersString);
+      }
+
+      logInBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        let name = userName.value.toLowerCase();
+        let pass = password.value;
+        let userFound = false;
+        for (let i = 0; i < users.length; i++) {
+          if (users[i].name.toLowerCase() === name && users[i].password === pass) {
+            userFound = true;
+            localStorage.setItem(
+              "logged-in-user-id",
+              JSON.stringify(users[i].id)
+            );
+            localStorage.setItem("logged-in-user-name", users[i].name);
+            break;
+          }
+        }
+        if (userFound) {
+          alert("Log In Successful!");
+          // Esas sehifeye yonlendirillecek
+        } else {
+          alert("Invalid username or password.");
+        }
+        userName.value = "";
+        password.value = "";
+      });
+    </script>
+  </body>
+</html>
