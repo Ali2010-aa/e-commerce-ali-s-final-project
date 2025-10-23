@@ -10,11 +10,11 @@ if (usersString) {
 
 logInBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  let name = userName.value.toLowerCase();
+  let name = userName.value;
   let pass = password.value;
   let userFound = false;
   for (let i = 0; i < users.length; i++) {
-    if (users[i].name.toLowerCase() === name && users[i].password === pass) {
+    if (users[i].name === name && users[i].password === pass) {
       userFound = true;
       localStorage.setItem("logged-in-user-id", JSON.stringify(users[i].id));
       localStorage.setItem("logged-in-user-name", users[i].name);
@@ -23,7 +23,7 @@ logInBtn.addEventListener("click", function (e) {
   }
   if (userFound) {
     alert("Log In Successful!");
-    // Esas sehifeye yonlendirillecek
+   window.location.href = "/html/mainPage.html";
   } else {
     alert("Invalid username or password.");
   }

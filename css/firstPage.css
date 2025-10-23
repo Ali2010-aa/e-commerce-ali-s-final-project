@@ -49,6 +49,23 @@ body {
   animation: fadeIn 3s ease;
 }
 
+.seeAll {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #ff4081;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.seeAll:hover {
+  background-color: #e91e63;
+  transform: scale(1.05);
+}
+
 @keyframes slideDown {
   from {
     transform: translateY(-30px);
