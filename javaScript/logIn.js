@@ -18,6 +18,7 @@ logInBtn.addEventListener("click", function (e) {
       userFound = true;
       localStorage.setItem("logged-in-user-id", JSON.stringify(users[i].id));
       localStorage.setItem("logged-in-user-name", users[i].name);
+      localStorage.setItem("logged-in-user-email" , users[i].email);
       break;
     }
   }

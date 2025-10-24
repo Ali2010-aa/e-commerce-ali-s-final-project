@@ -32,8 +32,76 @@ nav .navbar-brand:hover {
   color: #ff6f61;
 }
 
-nav .userLogo i {
+nav .navUserLogo i {
   font-size: 30px;
   color: #e0d9d9;
   cursor: pointer;
+}
+
+.user-section {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  right: 0;
+  top: 0;
+  background-color: #b3bfff;
+  padding: 10px 20px;
+  border-bottom-left-radius: 10px;
+  transform: translateY(-100%);
+}
+
+.user-section i {
+  font-size: 50px;
+  cursor: pointer;
+}
+
+.user-section .username {
+  font-size: 20px;
+  font-weight: bold;
+  color: #f2ead3;
+}
+
+.user-section .userId {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f2ead3;
+}
+
+.user-section .userMail {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f2ead3;
+}
+
+.user-section.show {
+  display: flex;
+  animation: slideIn 0.3s forwards;
+}
+.user-section.hide {
+  animation: slideUp 0.3s forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
 }
