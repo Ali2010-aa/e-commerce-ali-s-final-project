@@ -32,6 +32,12 @@
       <span class="username"></span>
       <span class="userId"></span>
       <span class="userMail"></span>
+      <button class="btn btn-outline-success btn-sm" id="addGameBtn">
+        Add Game
+      </button>
+      <button class="btn btn-outline-info btn-sm" id="myGamesBtn">
+        My Games
+      </button>
       <button class="btn btn-outline-danger btn-sm">Log Out</button>
     </div>
     <div class="sales">
@@ -52,8 +58,7 @@
       </div>
       <div class="games-container">
         <h1>Games</h1>
-        <div class="games-list">
-        </div>
+        <div class="games-list"></div>
       </div>
     </div>
     <div class="backTop">
@@ -62,7 +67,215 @@
         <i class="fa-solid fa-angle-up"></i>
       </a>
     </div>
-
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">...</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-outline-success modalBuyBtn">
+              Buy
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="addGameModal"
+      tabindex="-1"
+      aria-labelledby="addGameModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="addGameModalLabel">
+              Add New Game
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="addGameForm">
+              <div class="mb-3">
+                <label class="form-label">Game Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="gameNameInput"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Image URL</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="gameImageInput"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Price</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="gamePriceInput"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Genre</label>
+                <select class="form-select" id="gameGenreInput" required>
+                  <option value="">Select Genre</option>
+                  <option value="Action">Action</option>
+                  <option value="Adventure">Adventure</option>
+                  <option value="RPG">RPG</option>
+                  <option value="Strategy">Strategy</option>
+                  <option value="Sports">Sports</option>
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" id="saveGameBtn">
+              Add Game
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="myGamesModal"
+      tabindex="-1"
+      aria-labelledby="myGamesModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="myGamesModalLabel">
+              My Added Games
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <table class="table table-striped" id="myGamesTable">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Game Name</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Genre</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="myGamesModal"
+      tabindex="-1"
+      aria-labelledby="myGamesModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="myGamesModalLabel">
+              My Added Games
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <table class="table table-striped" id="myGamesTable">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Game Name</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Genre</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
     <script src="/javaScript/mainPage.js"></script>
   </body>
 </html>
