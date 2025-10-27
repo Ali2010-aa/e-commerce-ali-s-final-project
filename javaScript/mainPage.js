@@ -7,7 +7,7 @@ $(function () {
   if (storedGames && storedGames.length > 0) {
     games = storedGames;
   } else {
-    let games = [
+    games = [
       {
         id: 1,
         name: "Battlefield 6",
@@ -203,12 +203,12 @@ $(function () {
     let gameName = gameBox.find(".game-name").text();
     let gameImage = gameBox.find(".game-image").attr("src");
 
-    $("#exampleModalLabel").text(gameName);
-    $(".modal-body").html(
+    $("#gameBuyModalLabel").text(gameName);
+    $("#gameBuyModal .modal-body").html(
       `<img src="${gameImage}" style="width:100%;border-radius:10px;margin-bottom:10px;"><p>Do you want to buy ${gameName}?</p>`
     );
   });
-  $(".modalBuyBtn").on("click", function () {
+  $("#gameBuyModal .modalBuyBtn").on("click", function () {
     alert("The game has been added to your account.");
   });
   $("#addGameBtn").on("click", function () {
@@ -238,11 +238,11 @@ $(function () {
     let gameBox = document.createElement("div");
     gameBox.classList.add("game-box");
     gameBox.innerHTML = `
-    <img src="${newGame.image}" alt="${newGame.name}" class="game-image"/>
-    <h3 class="game-name">${newGame.name}</h3>
-    <p class="game-price">${newGame.price}</p>
-   <button type="button" class="btn btn-primary buy-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Buy Now</button>
-  `;
+  <img src="${newGame.image}" alt="${newGame.name}" class="game-image"/>
+  <h3 class="game-name">${newGame.name}</h3>
+  <p class="game-price">${newGame.price}</p>
+  <button type="button" class="btn btn-primary buy-button" data-bs-toggle="modal" data-bs-target="#gameBuyModal">Buy Now</button>
+`;
     document.querySelector(".games-list").appendChild(gameBox);
 
     $("#addGameForm")[0].reset();
@@ -299,6 +299,9 @@ $(function () {
     }
 
     $("#myGamesModal").modal("show");
+  });
+  $(document).on("hidden.bs.modal", function (e) {
+    $(".modal:visible").length && $("body").addClass("modal-open");
   });
 });
 
@@ -481,7 +484,7 @@ games.forEach((game) => {
     <img src="${game.image}" alt="${game.name}" class="game-image"/>
     <h3 class="game-name">${game.name}</h3>
     <p class="game-price">${game.price}</p>
-    <button type="button" class="btn btn-primary buy-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Buy Now</button>
+    <button type="button" class="btn btn-primary buy-button" data-bs-toggle="modal" data-bs-target="#gameBuyModal">Buy Now</button>
   `;
   gamesListContainer.appendChild(gameBox);
 });
@@ -526,7 +529,7 @@ function filterGamesByCategory(category) {
       <img src="${game.image}" alt="${game.name}" class="game-image"/>
       <h3 class="game-name">${game.name}</h3>
       <p class="game-price">${game.price}</p>
-      <button class="btn btn-primary buy-button">Buy Now</button>
+     <button type="button" class="btn btn-primary buy-button" data-bs-toggle="modal" data-bs-target="#gameBuyModal">Buy Now</button>
     `;
     gamesListContainer.appendChild(gameBox);
   });
