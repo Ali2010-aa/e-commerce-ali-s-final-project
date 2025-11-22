@@ -15,7 +15,7 @@ signUpBtn.addEventListener("click", function (e) {
   let username = userName.value;
   let userEmail = email.value;
   let userPassword = password.value;
-  let userConfirmPassword = confirmPassword.value;
+  let userConfirmPassword = rePassword.value;
   let userExists = false;
 
   for (let i = 0; i < users.length; i++) {

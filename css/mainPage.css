@@ -183,33 +183,35 @@ nav .navUserLogo i {
   margin-bottom: 10px;
 }
 
-.backTop {
-  background-color: #eeeeee;
-  display: flex;
-  justify-content: space-between;
-}
-
-.backTopLogo {
-  cursor: pointer;
-  font-size: 24px;
-  width: 40px;
-  height: 40px;
+.scroll-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background-color: #111;
+  color: #fff;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  border: 2px solid;
-  border-radius: 50%;
-  text-decoration: none;
-  color: #333;
-  transition: all 0.3s ease;
+  font-size: 26px;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.backTopLogo:hover {
+.scroll-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scroll-top:hover {
   background-color: #333;
   color: #fff;
-  transform: scale(1.1);
+  transform:scale(1.1);
 }
 
 @keyframes slideIn {
